@@ -5,7 +5,7 @@ use yii\db\Migration;
 
 class m150420_065716_add_frontenduser_role extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         // Create the auth items
         $this->insert('{{%auth_item}}', [
@@ -17,7 +17,7 @@ class m150420_065716_add_frontenduser_role extends Migration
         ]);    
     }
     
-    public function down()
+    public function safeDown()
     {
         $this->delete('{{%auth_item}}', ['name' => 'frontendUser']);    
     }

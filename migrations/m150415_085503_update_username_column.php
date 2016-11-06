@@ -5,14 +5,14 @@ use yii\db\Migration;
 
 class m150415_085503_update_username_column extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         // Change the length of the 'username' column in the 'users' table
-        $this->alterColumn('{{%user}}', 'username', Schema::TYPE_STRING.'(255) NOT NULL');
+        $this->alterColumn('{{%user}}', 'username', $this->string());
     }
 
-    public function down()
+    public function safeDown()
     {
-        $this->alterColumn('{{%user}}', 'username', Schema::TYPE_STRING.'(25) NOT NULL');
+        $this->alterColumn('{{%user}}', 'username', $this->string(25));
     }
 }
